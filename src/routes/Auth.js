@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { authService, firebaseInstance } from "../fbase";
+import AuthForm from "../components/AuthForm";
 
 const Auth = () => {
 
@@ -25,7 +26,7 @@ const Auth = () => {
 
     return (
         <div>
-
+            <AuthForm />
             <div>
                 <button onClick={ onSocialClick } name="google">구글 로그인</button>
                 <button onClick={ onSocialClick } name="github">깃허브 로그인</button>
