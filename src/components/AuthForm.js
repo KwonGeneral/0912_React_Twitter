@@ -37,13 +37,13 @@ const AuthForm = () => {
 
     return (
         <>
-            <form onSubmit={ onSubmit }>
-                <input name="email" value={ email } onChange={ onChange } type="email" placeholder="이메일" required/>
-                <input name="password" value={ password } onChange={ onChange } type="password" placeholder="비밀번호" required/>
-                <input type="submit" value={ newAccount ? "회원가입" : "로그인" } required/>
-                { error }
+            <form onSubmit={ onSubmit } className="container">
+                <input className="authInput" name="email" value={ email } onChange={ onChange } type="email" placeholder="이메일" required/>
+                <input className="authInput" name="password" value={ password } onChange={ onChange } type="password" placeholder="비밀번호" required/>
+                <input className="authInput authSubmit" type="submit" value={ newAccount ? "회원가입" : "로그인" } required/>
+                { error && <span className="authError">{ error }</span>}
             </form>
-            <span onClick={ toggleAccount }>
+            <span onClick={ toggleAccount } className="authSwitch">
                 { newAccount ? "로그인" : "회원가입" }
             </span>
         </>

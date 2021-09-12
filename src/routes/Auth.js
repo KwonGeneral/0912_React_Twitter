@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { authService, firebaseInstance } from "../fbase";
 import AuthForm from "../components/AuthForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter, faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Auth = () => {
 
@@ -22,14 +24,17 @@ const Auth = () => {
         console.log("onSocialClick data : ", data)
     };
 
-
-
     return (
-        <div>
+        <div className="authContainer">
+            <FontAwesomeIcon icon={ faTwitter } color={ "#04AAFF" } size="3x" style={{ marginBottom: 30 }} />
             <AuthForm />
-            <div>
-                <button onClick={ onSocialClick } name="google">구글 로그인</button>
-                <button onClick={ onSocialClick } name="github">깃허브 로그인</button>
+            <div className="authBtns">
+                <button onClick={ onSocialClick } name="google" className="authBtn">
+                    구글 로그인 <FontAwesomeIcon icon={ faGoogle } />
+                </button>
+                <button onClick={ onSocialClick } name="github" className="authBtn">
+                    깃허브 로그인 <FontAwesomeIcon icon={ faGithub } />
+                </button>
             </div>
         </div>
     )

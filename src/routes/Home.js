@@ -25,7 +25,10 @@ const Home = ({ userObj }) => {
         // 여기에 map 함수를 적용해서 문서 스냅샷에서 원하는 값만 뽑아서 다시 배열화 할 수 있다.
         // forEach 함수는 배열 요소를 순회하면서 매 순회마다 set_tweets 함수를 사용해야 하지만,
         // map 함수는 순회하며 만든 배열을 반환하므로 반환한 배열을 1번만 set_tweets 함수에 전달하면 되니 훨씬 효율적이다.
-        dbService.collection("tweets").onSnapshot((snapshot => {
+        dbService
+            .collection("tweets")
+            .orderBy("createdAt", "desc")
+            .onSnapshot((snapshot => {
             const newArray = snapshot.docs.map((document) => ({
                 id: document.id, ...document.data()
             }));
@@ -37,9 +40,9 @@ const Home = ({ userObj }) => {
 
 
     return (
-        <>
+        <div className="container">
             <TweetFactory userObj={ userObj } />
-            <div>
+            <div style={{ marginTop: 30 }}>
                 { tweets.map((tweet) => (
                     // <div key={ tweet.id }>
                     //     <h4>{ tweet.text }</h4>
@@ -47,7 +50,7 @@ const Home = ({ userObj }) => {
                     <Tweet key={ tweet.id } tweetObj={ tweet } isOwner={ tweet.creatorId === userObj.uid } />
                 )) }
             </div>
-        </>
+        </div>
 
     )
 }

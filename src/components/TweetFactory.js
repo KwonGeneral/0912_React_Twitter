@@ -1,6 +1,8 @@
 import {dbService, storageService} from "../fbase";
 import {v4 as uuidv4} from "uuid";
 import {useState} from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const TweetFactory = ({ userObj }) => {
     const [tweet, set_tweet] = useState("");
@@ -8,6 +10,9 @@ const TweetFactory = ({ userObj }) => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
+        if(tweet === "") {
+            return
+        }
         /*
         await dbService.collection("tweets").add({
             text: tweet,
@@ -61,21 +66,35 @@ const TweetFactory = ({ userObj }) => {
         // readAsDataURL 함수는 파일 정보를 인자로 받아서 파일 위치를 URL로 반환해 준다.
         // 이ㅏ 함수는 리액트 생명주기 함수처럼 파일 선택 후, '웹 브라우저가 파일을 인식하는 시점', '웹 브라우저 파일 인식이 끝난 시점' 등을
         // 포함하고 있어서 시점까지 함께 관리해줘야 URL을 얻을 수 있다.
-        reader.readAsDataURL(theFile)
+        // reader.readAsDataURL(theFile)
+        if(Boolean(theFile)) {
+            reader.readAsDataURL(theFile)
+        }
     };
 
     // 파일 취소
     const onClearAttachment = () => set_attachment("");
 
     return (
-        <form onSubmit={ onSubmit }>
-            <input type="text" value={ tweet } onChange={ onChange } placeholder="당신의 생각은?" maxLength={ 120 } />
-            <input type="file" accept="image/*" onChange={ onFileChange } />
+        <form onSubmit={ onSubmit } className="factoryForm">
+            <div className="factoryInput__container">
+                <input className="factoryInput__input" type="text" value={ tweet } onChange={ onChange }
+                       placeholder="당신의 생각은?" maxLength={ 120 } />
+                <input type="submit" value="&rarr;" className="factoryInput__arrow" />
+            </div>
+            <label htmlFor="attach-file" className="factoryInput__label">
+                <span>사진 추가</span>
+                <FontAwesomeIcon icon={ faPlus } />
+            </label>
+            <input id="attach-file" type="file" accept="image/*" onChange={ onFileChange } style={{ opacity: 0 }} />
             <input type="submit" value="Tweet"/>
             { attachment && (
-                <div>
-                    <img src={ attachment } width="50px" height="50px" />
-                    <button onClick={ onClearAttachment }>초기화</button>
+                <div className="factoryForm__attachment">
+                    <img src={ attachment } width="50px" height="50px" style={{ backgroundImage: attachment }}/>
+                    <div className="factoryForm__clear" onClick={ onClearAttachment }>
+                        <span>초기화</span>
+                        <FontAwesomeIcon icon={ faTimes } />
+                    </div>
                 </div>
             )}
         </form>
