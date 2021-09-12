@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.js": "/0912_React_Twitter/static/js/main.f9b0494f.chunk.js",
-    "main.js.map": "/0912_React_Twitter/static/js/main.f9b0494f.chunk.js.map",
+    "main.css": "/0912_React_Twitter/static/css/main.dc3e25b6.chunk.css",
+    "main.js": "/0912_React_Twitter/static/js/main.f1759873.chunk.js",
+    "main.js.map": "/0912_React_Twitter/static/js/main.f1759873.chunk.js.map",
     "runtime-main.js": "/0912_React_Twitter/static/js/runtime-main.dd25cd37.js",
     "runtime-main.js.map": "/0912_React_Twitter/static/js/runtime-main.dd25cd37.js.map",
-    "static/js/2.a60a7a7a.chunk.js": "/0912_React_Twitter/static/js/2.a60a7a7a.chunk.js",
-    "static/js/2.a60a7a7a.chunk.js.map": "/0912_React_Twitter/static/js/2.a60a7a7a.chunk.js.map",
+    "static/js/2.79d9dc15.chunk.js": "/0912_React_Twitter/static/js/2.79d9dc15.chunk.js",
+    "static/js/2.79d9dc15.chunk.js.map": "/0912_React_Twitter/static/js/2.79d9dc15.chunk.js.map",
     "index.html": "/0912_React_Twitter/index.html",
-    "static/js/2.a60a7a7a.chunk.js.LICENSE.txt": "/0912_React_Twitter/static/js/2.a60a7a7a.chunk.js.LICENSE.txt"
+    "static/css/main.dc3e25b6.chunk.css.map": "/0912_React_Twitter/static/css/main.dc3e25b6.chunk.css.map",
+    "static/js/2.79d9dc15.chunk.js.LICENSE.txt": "/0912_React_Twitter/static/js/2.79d9dc15.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dd25cd37.js",
-    "static/js/2.a60a7a7a.chunk.js",
-    "static/js/main.f9b0494f.chunk.js"
+    "static/js/2.79d9dc15.chunk.js",
+    "static/css/main.dc3e25b6.chunk.css",
+    "static/js/main.f1759873.chunk.js"
   ]
 }
