@@ -7,7 +7,7 @@ import { authService } from "../fbase";
 
 function App() {
     const [init, set_init] = useState(false);
-    const [isLogin, set_isLogin] = useState(false);
+    // const [isLogin, set_isLogin] = useState(false);
     const [userObj, set_userObj] = useState(null);
 
     // console.log(authService.currentUser)
@@ -23,7 +23,8 @@ function App() {
                     updateProfile: (args) => user.updateProfile(args)
                 });
             } else {
-                set_isLogin(false);
+                // set_isLogin(false);
+                set_userObj(false);
             }
             set_init(true);
         });
